@@ -107,14 +107,16 @@ class _PageSinhViensState extends State<PageSinhViens> {
 
   void _xoa(BuildContext? dialogContext, SinhVienSnapshot svs) async {
     String? confirm = await showConfirmDialog(
-        context, "Bạn muốn xóa sv ${svs.sinhVien!.ten}}");
+        context, "Bạn muốn xóa sv ${svs.sinhVien!.ten}");
     if (confirm == "ok") {
-      FirebaseStorage _storage = FirebaseStorage.instance;
-      Reference reference =
-          _storage.ref().child("images").child("anh_${svs.sinhVien!.id}.jpg");
-      if (reference.bucket.isNotEmpty) {
+      if (svs.sinhVien!.anh != null) {
+        FirebaseStorage _storage = FirebaseStorage.instance;
+        Reference reference =
+            _storage.ref().child("images").child("anh_${svs.sinhVien!.id}.jpg");
+        print(reference.name);
         reference.delete();
       }
+
       svs
           .delete()
           .whenComplete(
