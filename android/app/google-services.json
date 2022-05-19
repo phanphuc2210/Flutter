@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "130340918539",
+    "project_id": "phuc-61136382-flutter",
+    "storage_bucket": "phuc-61136382-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130340918539:android:7b102176740401cc453e0e",
+        "android_client_info": {
+          "package_name": "com.example.phuc_61cntt1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130340918539-7l894n3166s6illca244mjoa65qp1vni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwHrK6dHq1kFIRviFUBsN86DFlXQZ6F4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130340918539-7l894n3166s6illca244mjoa65qp1vni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
