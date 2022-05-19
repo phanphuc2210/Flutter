@@ -112,7 +112,7 @@ class _PageSinhViensState extends State<PageSinhViens> {
       FirebaseStorage _storage = FirebaseStorage.instance;
       Reference reference =
           _storage.ref().child("images").child("anh_${svs.sinhVien!.id}.jpg");
-      if (reference.bucket == true) {
+      if (reference.bucket.isNotEmpty) {
         reference.delete();
       }
       svs
