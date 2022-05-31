@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:phuc_61cntt1/firebase/cloud_firestore/firebase_data.dart';
+import 'package:phuc_61cntt1/firebase/cloud_firestore/login_page.dart';
 import 'package:phuc_61cntt1/firebase/cloud_firestore/page_firebase_detail_sv.dart';
 import 'package:phuc_61cntt1/helper/dialog.dart';
 
@@ -32,6 +34,37 @@ class _PageSinhViensState extends State<PageSinhViens> {
                 color: Colors.white,
               ))
         ],
+      ),
+      drawer: Drawer(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Center(
+            child: Column(
+              children: [
+                const Text("My Firebase App"),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    showSnackBar(context, "Signing out.....", 300);
+                    FirebaseAuth.instance.signOut().whenComplete(() {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
+                          (route) => false);
+                      showSnackBar(context, "Please sign in", 5);
+                    }).catchError((error) {
+                      showSnackBar(context, "Sign out not successfully", 3);
+                    });
+                  },
+                  icon: const Icon(Icons.logout_outlined),
+                  label: const Text("Sign out"),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
       body: StreamBuilder<List<SinhVienSnapshot>>(
         stream: SinhVienSnapshot.getAllSinhVien(),

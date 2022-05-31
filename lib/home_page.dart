@@ -7,7 +7,9 @@ import 'package:phuc_61cntt1/coban/list_view.dart';
 import 'package:phuc_61cntt1/coban/my_image.dart';
 import 'package:phuc_61cntt1/coban/photo_album.dart';
 import 'package:phuc_61cntt1/coban/textField.dart';
+import 'package:phuc_61cntt1/firebase/cloud_firestore/login_page.dart';
 import 'package:phuc_61cntt1/firebase/cloud_firestore/page_firebase_app.dart';
+import 'package:phuc_61cntt1/firebase/cloud_firestore/register_page.dart';
 import 'package:phuc_61cntt1/form/page_form_mathang.dart';
 import 'package:phuc_61cntt1/provider_baitap/sanpham_app.dart';
 import 'package:phuc_61cntt1/provider_vidu/my_app.dart';
@@ -38,6 +40,9 @@ class HomePage extends StatelessWidget {
               title: "PhotosPage", destination: PhotosPage()),
           buttonBuilder(context,
               title: "My Firebase App", destination: MyFirebaseApp()),
+          buttonBuilder(context, title: "Login", destination: LoginPage()),
+          buttonBuilder(context,
+              title: "Register", destination: RegisterPage()),
         ]),
       ),
     );
@@ -45,12 +50,16 @@ class HomePage extends StatelessWidget {
 
   Widget buttonBuilder(BuildContext context,
       {required String title, required Widget destination}) {
-    return ElevatedButton(
+    return SizedBox(
+      width: 200,
+      child: ElevatedButton(
         onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => destination,
             )),
-        child: Text(title));
+        child: Text(title),
+      ),
+    );
   }
 }

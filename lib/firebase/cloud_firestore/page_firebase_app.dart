@@ -1,6 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:phuc_61cntt1/firebase/cloud_firestore/login_page.dart';
 import 'package:phuc_61cntt1/firebase/cloud_firestore/page_home_firebase_app.dart';
+
+// adb kill-server
+// adb start-server
 
 class MyFirebaseApp extends StatefulWidget {
   const MyFirebaseApp({Key? key}) : super(key: key);
@@ -38,7 +42,7 @@ class _MyFirebaseAppState extends State<MyFirebaseApp> {
         ),
       );
     } else {
-      return const MaterialApp(title: "My Firebase App", home: PageSinhViens());
+      return const MaterialApp(title: "My Firebase App", home: LoginPage());
     }
   }
 
